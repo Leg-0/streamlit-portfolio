@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = []
 lock_version = "4.5.0"
-content_hash = "sha256:c9c5b96be3f967a9ff0a74c5511cfe9d6382173dc0ee03ec814916dd9ae1d61c"
+content_hash = "sha256:0939b407a7eebe3272f463e9ee15dc46261ba926e4088e89b4138b5983daa374"
 
 [[metadata.targets]]
 requires_python = "==3.14.*"
@@ -186,11 +186,11 @@ files = [
 
 [[package]]
 name = "idna"
-version = "3.13"
+version = "3.14"
 summary = ""
 files = [
-    {file = "idna-3.13-py3-none-any.whl", hash = "sha256:892ea0cde124a99ce773decba204c5552b69c3c67ffd5f232eb7696135bc8bb3"},
-    {file = "idna-3.13.tar.gz", hash = "sha256:585ea8fe5d69b9181ec1afba340451fba6ba764af97026f92a91d4eef164a242"},
+    {file = "idna-3.14-py3-none-any.whl", hash = "sha256:e677eaf072e290f7b725f9acf0b3a2bd55f9fd6f7c70abe5f0e34823d0accf69"},
+    {file = "idna-3.14.tar.gz", hash = "sha256:466d810d7a2cc1022bea9b037c39728d51ae7dad40d480fc9b7d7ecf98ba8ee3"},
 ]
 
 [[package]]
