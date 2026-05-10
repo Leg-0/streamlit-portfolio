@@ -228,7 +228,7 @@ with Other:
         st.badge("Monitoring", icon=":material/trending_up:", color="blue")
     with col3:
         st.badge(
-            "PostgreSQL",
+            "Pandas",
             icon=":material/database:",
             color="blue",
         )
@@ -251,7 +251,7 @@ with Other:
         )
         st.badge("Agile Methodology", icon=":material/groups:", color="green")
         st.badge("Technical Documentation", icon=":material/article:", color="blue")
-        st.badge("Mentoring", icon=":material/school:", color="orange")
+        st.badge("Streamlit", icon=":material/school:", color="orange")
         st.badge("Refactoring", icon=":material/construction:", color="yellow")
         st.badge("Scalability", icon=":material/trending_up:", color="green")
 # endregion
