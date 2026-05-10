@@ -4,7 +4,12 @@ import os
 from datetime import datetime
 import plotly.graph_objects as go
 
-st.set_page_config(initial_sidebar_state="expanded", layout="wide")
+st.set_page_config(
+    initial_sidebar_state="expanded",
+    layout="wide",
+    page_title="Aaron Isaacs Portfolio",
+    page_icon=":octopus:",
+)
 PHOTO_OF_ME = "assets/headshot_transparent.png"
 WSU_LOGO = "assets/Wichita_State_University_logo.png"
 SNOWFLAKE_LOGO = "assets/snowflake.png"
