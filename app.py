@@ -197,8 +197,8 @@ with Lang:
 
     with col_coding:
         # Coding languages
-        coding_skills = ["Python", "SQL", "C/C++", "Go", "Typescript"]
-        coding_levels = [4, 4, 1.75, 0.5, 0.5]
+        coding_skills = ["Python", "SQL", "C/C++", "Go", "Typescript", "PowerShell"]
+        coding_levels = [4, 4, 1.75, 0.5, 0.5, 0.75]
 
         fig_coding = go.Figure(
             go.Bar(x=coding_skills, y=coding_levels, marker=dict(color="#0066cc"))
