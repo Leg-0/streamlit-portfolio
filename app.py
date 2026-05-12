@@ -193,21 +193,55 @@ with Soft:
 
 
 with Lang:
-    skills = ["Python", "SQL", "C/C++", "Go", "Typescript"]
-    levels = [4, 4, 1.75, 0.5, 0.5]
+    col_coding, col_spoken = st.columns([3, 1])
 
-    fig = go.Figure(go.Bar(x=skills, y=levels, marker=dict(color="#228501")))
+    with col_coding:
+        # Coding languages
+        coding_skills = ["Python", "SQL", "C/C++", "Go", "Typescript"]
+        coding_levels = [4, 4, 1.75, 0.5, 0.5]
 
-    fig.update_layout(
-        xaxis=dict(title="Programming Languages"),
-        yaxis=dict(
-            title="Years Experience",
-            tickvals=[1, 2, 3, 4, 5],
-            range=[0, 6],
-        ),
-    )
+        fig_coding = go.Figure(
+            go.Bar(x=coding_skills, y=coding_levels, marker=dict(color="#0066cc"))
+        )
 
-    st.plotly_chart(fig, key="Languages")
+        fig_coding.update_layout(
+            xaxis=dict(title="Programming Languages"),
+            yaxis=dict(
+                title="Years Experience",
+                tickvals=[1, 2, 3, 4, 5],
+                range=[0, 6],
+            ),
+        )
+
+        st.plotly_chart(fig_coding, key="CodingLanguages")
+
+    with col_spoken:
+        # Spoken languages with CEFR scale
+        spoken_skills = ["Italian"]
+        spoken_levels = [2]
+
+        fig_spoken = go.Figure(
+            go.Bar(
+                x=spoken_skills,
+                y=spoken_levels,
+                marker=dict(color="#008C45"),
+            )
+        )
+
+        cefr_tickvals = [1, 2, 3, 4, 5, 6]
+        cefr_ticktext = ["A1", "A2", "B1", "B2", "C1", "C2"]
+
+        fig_spoken.update_layout(
+            xaxis=dict(title="Spoken Languages"),
+            yaxis=dict(
+                title="CEFR Level",
+                tickvals=cefr_tickvals,
+                ticktext=cefr_ticktext,
+                range=[0, 6],
+            ),
+        )
+
+        st.plotly_chart(fig_spoken, key="SpokenLanguages")
 with General:
     col1, col2, col3, col4, col5, col6 = st.columns(6)
     with col1:
