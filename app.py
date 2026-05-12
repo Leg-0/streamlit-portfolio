@@ -62,7 +62,7 @@ with SE:
             - Greatly enhanced our build speed by developing D|MET-Specific python packages for services that didn't have an available Python SDK, such as dbt, and SigmaComputing.
             - Created and managed CI/CD workflows on Github Actions to automate testing and deployment of our applications.
             - Created the testing framework and pushing for engineers to use the requirements driven development (RDD) approach.
-            - Created AI skill, prompt, and instructions files.
+            - Created AI skill, prompt, and instruction files to support consistent automation, improve prompt engineering practices, and document reusable workflows for team-wide use.
             """)
 
 with PE:
@@ -125,7 +125,7 @@ st.divider()
 
 # region Skills
 st.header("Skills", text_alignment="center")
-AWS, Soft, Lang, Other = st.tabs(["AWS", "Soft", "Languages", "Other"])
+General, AWS, Soft, Lang = st.tabs(["General", "AWS", "Soft", "Languages"])
 
 with AWS:
     col1, col2, col3, col4 = st.columns(4)
@@ -208,42 +208,51 @@ with Lang:
     )
 
     st.plotly_chart(fig, key="Languages")
-with Other:
-    col1, col2, col3, col4 = st.columns(4)
+with General:
+    col1, col2, col3, col4, col5, col6 = st.columns(6)
     with col1:
-        st.badge("JSON", icon=":material/data_object:", color="yellow")
-        st.badge("XML", icon=":material/description:", color="orange")
-        st.badge("DRY Principles", icon=":material/pattern:", color="violet")
+        st.badge("JSON", icon=":material/data_object:", color="blue")
+        st.badge("XML", icon=":material/code:", color="orange")
+        st.badge("DRY Principles", icon=":material/dry_cleaning:", color="violet")
         st.badge("SOLID Principles", icon=":material/architecture:", color="blue")
-        st.badge("Design Patterns", icon=":material/dashboard:", color="green")
-        st.badge("Problem Solving", icon=":material/lightbulb:", color="yellow")
-        st.badge("System Design", icon=":material/schema:", color="blue")
+        st.badge("Problem Solving", icon=":material/psychology:", color="yellow")
+        st.badge("System Design", icon=":material/schema:", color="violet")
+        st.badge("Code Reviews", icon=":material/compare:", color="green")
+
     with col2:
-        st.badge("Docker", icon=":material/package:", color="blue")
-        st.badge("REST APIs", icon=":material/api:", color="green")
-        st.badge("Authentication", icon=":material/lock:", color="red")
+        st.badge("Snowflake", icon=":material/ac_unit:", color="blue")
+        st.badge("dbt", icon=":material/developer_mode:", color="green")
+        st.badge("Redis", icon=":material/storage:", color="red")
         st.badge("Caching", icon=":material/bolt:", color="yellow")
         st.badge("Message Queues", icon=":material/queue:", color="violet")
-        st.badge("Logging", icon=":material/description:", color="orange")
-        st.badge("Monitoring", icon=":material/trending_up:", color="blue")
+        st.badge("Logging", icon=":material/receipt_long:", color="orange")
+        st.badge("Monitoring", icon=":material/monitor_heart:", color="green")
     with col3:
         st.badge(
-            "Pandas",
-            icon=":material/database:",
+            "NoSQL",
+            icon=":material/storage:",
             color="blue",
         )
         st.badge(
             "Multithreading",
-            icon=":material/hourglass_empty:",
+            icon=":material/airwave:",
             color="orange",
         )
         st.badge("Unit Testing", icon=":material/check_circle:", color="green")
-        st.badge("Code Reviews", icon=":material/rate_review:", color="yellow")
+        st.badge(
+            "Test Driven Dev (TDD)",
+            icon=":material/science:",
+            color="yellow",
+        )
         st.badge("Git Workflows", icon=":material/merge:", color="gray")
         st.badge("Debugging", icon=":material/bug_report:", color="red")
         st.badge("Performance Tuning", icon=":material/speed:", color="green")
     with col4:
-        st.badge("Linux", icon=":material/terminal:", color="grey")
+        st.badge(
+            "Object Oriented Programming",
+            icon=":material/code:",
+            color="gray",
+        )
         st.badge(
             "CI/CD Pipelines",
             icon=":material/integration_instructions:",
@@ -251,9 +260,34 @@ with Other:
         )
         st.badge("Agile Methodology", icon=":material/groups:", color="green")
         st.badge("Technical Documentation", icon=":material/article:", color="blue")
-        st.badge("Streamlit", icon=":material/school:", color="orange")
-        st.badge("Refactoring", icon=":material/construction:", color="yellow")
+        st.badge("Authentication", icon=":material/security:", color="orange")
+        st.badge("Refactoring", icon=":material/build:", color="yellow")
         st.badge("Scalability", icon=":material/trending_up:", color="green")
+    with col5:
+        st.badge("PDM", icon=":material/package_2:", color="gray")
+        st.badge(
+            "uv",
+            icon=":material/visibility:",
+            color="violet",
+        )
+        st.badge("Pandas", icon=":material/table_chart:", color="green")
+        st.badge("FastAPI", icon=":material/api:", color="blue")
+        st.badge("REST APIs", icon=":material/api:", color="orange")
+        st.badge("dlt", icon=":material/download:", color="yellow")
+        st.badge("Docker", icon=":material/layers:", color="blue")
+
+    with col6:
+        st.badge("Streamlit", icon=":material/monitor:", color="grey")
+        st.badge(
+            "Linux",
+            icon=":material/terminal:",
+            color="violet",
+        )
+        st.badge("boto3", icon=":material/cloud:", color="green")
+        st.badge("pydantic", icon=":material/shield:", color="blue")
+        st.badge("pytest", icon=":material/auto_fix_high:", color="orange")
+        st.badge("asyncio", icon=":material/sync_alt:", color="yellow")
+        st.badge("requests", icon=":material/send:", color="green")
 # endregion
 st.divider()
 # region Education
