@@ -38,11 +38,11 @@ st.caption("Full Stack Developer", text_alignment="center")
 st.header("Experience", text_alignment="center")
 SE, PE, DE = st.tabs(["Software Engineer", "Platform Engineer", "Data Engineer Co-op"])
 with SE:
-    st.subheader("Koch Capabilities, LLC", divider=True, text_alignment="center")
-    st.subheader(
-        "Data Management, Enablement, and Transformation team (D|MET)",
-        text_alignment="center",
-    )
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader("Koch Capabilities, LLC", divider=True, text_alignment="left")
+    with col2:
+        st.subheader("Jan 2025 - Present", divider=True, text_alignment="right")
     TPL, SWE = st.columns(2)
     with TPL:
         st.write("#### Technical Product Lead")
@@ -66,11 +66,15 @@ with SE:
             """)
 
 with PE:
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader(
+            "Koch Ag. & Energy Solutions, LLC", divider=True, text_alignment="left"
+        )
+    with col2:
+        st.subheader("July 2024 - Jan 2025", divider=True, text_alignment="right")
     st.subheader(
-        "Koch Ag. & Energy Solutions, LLC", divider=True, text_alignment="center"
-    )
-    st.subheader(
-        "DevOps team",
+        "Platform Engineer",
         text_alignment="center",
     )
     st.write("""
@@ -91,9 +95,13 @@ with PE:
         """)
 
 with DE:
-    st.subheader("Georgia-Pacific, LLC", divider=True, text_alignment="center")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader("Georgia-Pacific, LLC", divider=True, text_alignment="left")
+    with col2:
+        st.subheader("Jan 2024 - May 2024", divider=True, text_alignment="right")
     st.subheader(
-        "Data Engineering team",
+        "Data Engineer Co-op",
         text_alignment="center",
     )
     st.write("""
@@ -174,6 +182,7 @@ with AWS:
             icon=":material/add_box:",
             color="violet",
         )
+        st.badge("Bedrock", icon=":material/robot:", color="gray")
 
 with Soft:
     skills = ["Communication", "Teamwork", "Time Management", "Leadership"]
@@ -217,8 +226,8 @@ with Lang:
 
     with col_spoken:
         # Spoken languages with CEFR scale
-        spoken_skills = ["Italian"]
-        spoken_levels = [2]
+        spoken_skills = ["Italian", "German", "English"]
+        spoken_levels = [2, 1, 6]
 
         fig_spoken = go.Figure(
             go.Bar(
@@ -321,7 +330,7 @@ with General:
         st.badge("pydantic", icon=":material/shield:", color="blue")
         st.badge("pytest", icon=":material/auto_fix_high:", color="orange")
         st.badge("asyncio", icon=":material/sync_alt:", color="yellow")
-        st.badge("requests", icon=":material/send:", color="green")
+        st.badge("requests/httpx", icon=":material/send:", color="green")
 # endregion
 st.divider()
 # region Education
