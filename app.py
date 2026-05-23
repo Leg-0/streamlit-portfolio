@@ -51,6 +51,7 @@ with SE:
             - Subject Matter Expert: Any technical questions relating to our product (an internal streamlit webapp) are directed to me. Questions regarding connectivity, scalability, ease of transformation, and compatibility.
             - Delegated Feature Enhancements: While I still have an active hand in development, my expanded responsibilities require I take a more active part in delegating product enhancements to other engineers, and ensuring they have the resources and support they needed to be successful.
             - Lead Cross-Platform Spike: In an effort to engage and benefit one another, I planned, lead, and executed a spike with our Technology and our Security stacks to establish better access management mechanisms that both parties understood well and could manage easily.
+            - Empowered the team with agentic coding technology, hosting knowledge transfers about claude code and open code as well as how to build skills, agents, hooks, plugins, and more.
             """)
     with SWE:
         st.write("#### Software Engineer")
