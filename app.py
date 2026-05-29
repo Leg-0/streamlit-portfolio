@@ -340,7 +340,7 @@ st.subheader("Wichita State University")
 education, uni_logo = st.columns(2)
 with education:
     st.write("""
-        #### BS in Electrical Engineering | August 2023
+        #### BS in Electrical Engineering | June 2023
         - Minor in Computer Science
     """)
 with uni_logo:
