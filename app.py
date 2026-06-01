@@ -47,10 +47,10 @@ with SE:
     with TPL:
         st.write("#### Technical Product Lead")
         st.write("""
-            - Guiding Technology Path: Collaborating closely with data product owners (DPOs) my own technical product owner (TPO), and stakeholders, I am an active member in solving problems with technologies that would benefit the stakeholders and prevent major disruptions to our tech stack.
-            - Subject Matter Expert: Any technical questions relating to our product (an internal streamlit webapp) are directed to me. Questions regarding connectivity, scalability, ease of transformation, and compatibility.
-            - Delegated Feature Enhancements: While I still have an active hand in development, my expanded responsibilities require I take a more active part in delegating product enhancements to other engineers, and ensuring they have the resources and support they needed to be successful.
-            - Lead Cross-Platform Spike: In an effort to engage and benefit one another, I planned, lead, and executed a spike with our Technology and our Security stacks to establish better access management mechanisms that both parties understood well and could manage easily.
+            - Collaborating closely with data product owners (DPOs), technical product owners (TPOs), and stakeholders to guide technology decisions, actively solving problems with technologies that benefit stakeholders and prevent major disruptions to the tech stack.
+            - Acting as the subject matter expert for our internal Streamlit web application, fielding technical questions on connectivity, scalability, ease of transformation, and compatibility.
+            - Delegating product enhancements to engineers while maintaining an active hand in development, ensuring the team has the resources and support needed to be successful.
+            - Planned, led, and executed a cross-stack spike between the Technology and Security organizations to establish shared access management mechanisms that both teams could understand and manage easily.
             - Empowered the team with agentic coding technology, hosting knowledge transfers about claude code and open code as well as how to build skills, agents, hooks, plugins, and more.
             """)
     with SWE:
