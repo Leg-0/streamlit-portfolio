@@ -73,7 +73,7 @@ with PE:
             "Koch Ag. & Energy Solutions, LLC", divider=True, text_alignment="left"
         )
     with col2:
-        st.subheader("July 2024 - Jan 2025", divider=True, text_alignment="right")
+        st.subheader("July 2023 - Jan 2024", divider=True, text_alignment="right")
     st.subheader(
         "Platform Engineer",
         text_alignment="center",
@@ -100,7 +100,7 @@ with DE:
     with col1:
         st.subheader("Georgia-Pacific, LLC", divider=True, text_alignment="left")
     with col2:
-        st.subheader("Jan 2024 - May 2024", divider=True, text_alignment="right")
+        st.subheader("Jan 2023 - May 2023", divider=True, text_alignment="right")
     st.subheader(
         "Data Engineer Co-op",
         text_alignment="center",
