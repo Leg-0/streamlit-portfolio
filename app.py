@@ -42,7 +42,7 @@ with SE:
     with col1:
         st.subheader("Koch Capabilities, LLC", divider=True, text_alignment="left")
     with col2:
-        st.subheader("Jan 2025 - Present", divider=True, text_alignment="right")
+        st.subheader("Jan 2024 - Present", divider=True, text_alignment="right")
     TPL, SWE = st.columns(2)
     with TPL:
         st.write("#### Technical Product Lead")
