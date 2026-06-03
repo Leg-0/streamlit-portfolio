@@ -1,7 +1,7 @@
 import streamlit as st
-import pandas as pd
 import os
 from datetime import datetime
+from pathlib import Path
 import plotly.graph_objects as go
 
 st.set_page_config(
@@ -13,6 +13,78 @@ st.set_page_config(
 PHOTO_OF_ME = "assets/headshot_transparent.png"
 WSU_LOGO = "assets/Wichita_State_University_logo.png"
 SNOWFLAKE_LOGO = "assets/snowflake.png"
+
+
+def experience_header(company, dates):
+    col1, col2 = st.columns(2)
+    with col1:
+        st.subheader(company, divider=True, text_alignment="left")
+    with col2:
+        st.subheader(dates, divider=True, text_alignment="right")
+
+
+@st.cache_data
+def load_resume_bytes(path):
+    return Path(path).read_bytes()
+
+
+@st.cache_data
+def build_soft_skills_fig():
+    fig = go.Figure(
+        go.Bar(
+            x=["Communication", "Teamwork", "Time Management", "Leadership"],
+            y=[5, 4, 3, 3],
+        )
+    )
+    fig.update_layout(
+        yaxis=dict(
+            tickvals=[1, 2, 3, 4, 5],
+            ticktext=["Novice", "Beginner", "Intermediate", "Advanced", "Expert"],
+            range=[0, 5.5],
+        )
+    )
+    return fig
+
+
+@st.cache_data
+def build_coding_languages_fig():
+    fig = go.Figure(
+        go.Bar(
+            x=["Python", "SQL", "C/C++", "Go", "Typescript", "PowerShell"],
+            y=[4, 4, 1.75, 0.5, 0.5, 0.75],
+            marker=dict(color="#0066cc"),
+        )
+    )
+    fig.update_layout(
+        xaxis=dict(title="Programming Languages"),
+        yaxis=dict(
+            title="Years Experience",
+            tickvals=[1, 2, 3, 4, 5],
+            range=[0, 6],
+        ),
+    )
+    return fig
+
+
+@st.cache_data
+def build_spoken_languages_fig():
+    fig = go.Figure(
+        go.Bar(
+            x=["Italian", "German", "English"],
+            y=[2, 1, 6],
+            marker=dict(color="#008C45"),
+        )
+    )
+    fig.update_layout(
+        xaxis=dict(title="Spoken Languages"),
+        yaxis=dict(
+            title="CEFR Level",
+            tickvals=[1, 2, 3, 4, 5, 6],
+            ticktext=["A1", "A2", "B1", "B2", "C1", "C2"],
+            range=[0, 6],
+        ),
+    )
+    return fig
 
 with st.sidebar:
     st.image(
@@ -38,11 +110,7 @@ st.caption("Full Stack Developer", text_alignment="center")
 st.header("Experience", text_alignment="center")
 SE, PE, DE = st.tabs(["Software Engineer", "Platform Engineer", "Data Engineer Co-op"])
 with SE:
-    col1, col2 = st.columns(2)
-    with col1:
-        st.subheader("Koch Capabilities, LLC", divider=True, text_alignment="left")
-    with col2:
-        st.subheader("Jan 2024 - Present", divider=True, text_alignment="right")
+    experience_header("Koch Capabilities, LLC", "Jan 2024 - Present")
     TPL, SWE = st.columns(2)
     with TPL:
         st.write("#### Technical Product Lead")
@@ -67,13 +135,7 @@ with SE:
             """)
 
 with PE:
-    col1, col2 = st.columns(2)
-    with col1:
-        st.subheader(
-            "Koch Ag. & Energy Solutions, LLC", divider=True, text_alignment="left"
-        )
-    with col2:
-        st.subheader("July 2023 - Jan 2024", divider=True, text_alignment="right")
+    experience_header("Koch Ag. & Energy Solutions, LLC", "July 2023 - Jan 2024")
     st.subheader(
         "Platform Engineer",
         text_alignment="center",
@@ -96,11 +158,7 @@ with PE:
         """)
 
 with DE:
-    col1, col2 = st.columns(2)
-    with col1:
-        st.subheader("Georgia-Pacific, LLC", divider=True, text_alignment="left")
-    with col2:
-        st.subheader("Jan 2023 - May 2023", divider=True, text_alignment="right")
+    experience_header("Georgia-Pacific, LLC", "Jan 2023 - May 2023")
     st.subheader(
         "Data Engineer Co-op",
         text_alignment="center",
@@ -136,122 +194,6 @@ st.divider()
 st.header("Skills", text_alignment="center")
 General, AWS, Soft, Lang = st.tabs(["General", "AWS", "Soft", "Languages"])
 
-with AWS:
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.badge("S3", icon=":material/folder:", color="orange")
-        st.badge("DynamoDB", icon=":material/database:", color="blue")
-        st.badge("Fargate", icon=":material/add_box:", color="violet")
-        st.badge("CloudFormation", icon=":material/cloud:", color="green")
-        st.badge("CloudFront", icon=":material/public:", color="blue")
-        st.badge("Simple Queue Service (SQS)", icon=":material/queue:", color="green")
-        st.badge("Event Bridge", icon=":material/event:", color="yellow")
-    with col2:
-        st.badge(
-            "Elastic Container Service (ECS)", icon=":material/add_box:", color="violet"
-        )
-        st.badge("Lambda", icon=":material/functions:", color="yellow")
-        st.badge("API Gateway", icon=":material/api:", color="green")
-        st.badge("Secret Manager", icon=":material/lock:", color="red")
-        st.badge("Key Management Service (KMS)", icon=":material/key:", color="red")
-        st.badge("Cost Explorer", icon=":material/attach_money:", color="green")
-        st.badge("CloudWatch", icon=":material/cloud_alert:", color="orange")
-    with col3:
-        st.badge(
-            "Relational Database Service (RDS)",
-            icon=":material/database:",
-            color="blue",
-        )
-        st.badge(
-            "Simple Notification Service (SNS)",
-            icon=":material/notifications:",
-            color="green",
-        )
-        st.badge("Simple Email Service (SES)", icon=":material/email:", color="blue")
-        st.badge(
-            "Elastic Load Balancing (ELB)", icon=":material/balance:", color="yellow"
-        )
-        st.badge("Parameter Store", icon=":material/settings:", color="gray")
-        st.badge(
-            "Identity Access Management (IAM)", icon=":material/person:", color="blue"
-        )
-        st.badge("EC2", icon=":material/computer:", color="yellow")
-    with col4:
-        st.badge("Redshift", icon=":material/analytics:", color="violet")
-        st.badge(
-            "Elastic Container Registry (ECR)",
-            icon=":material/add_box:",
-            color="violet",
-        )
-        st.badge("Bedrock", icon=":material/robot:", color="gray")
-
-with Soft:
-    skills = ["Communication", "Teamwork", "Time Management", "Leadership"]
-    levels = [5, 4, 3, 3]
-
-    fig = go.Figure(go.Bar(x=skills, y=levels))
-
-    fig.update_layout(
-        yaxis=dict(
-            tickvals=[1, 2, 3, 4, 5],
-            ticktext=["Novice", "Beginner", "Intermediate", "Advanced", "Expert"],
-            range=[0, 5.5],
-        )
-    )
-
-    st.plotly_chart(fig, key="soft_skills")
-
-
-with Lang:
-    col_coding, col_spoken = st.columns([3, 1])
-
-    with col_coding:
-        # Coding languages
-        coding_skills = ["Python", "SQL", "C/C++", "Go", "Typescript", "PowerShell"]
-        coding_levels = [4, 4, 1.75, 0.5, 0.5, 0.75]
-
-        fig_coding = go.Figure(
-            go.Bar(x=coding_skills, y=coding_levels, marker=dict(color="#0066cc"))
-        )
-
-        fig_coding.update_layout(
-            xaxis=dict(title="Programming Languages"),
-            yaxis=dict(
-                title="Years Experience",
-                tickvals=[1, 2, 3, 4, 5],
-                range=[0, 6],
-            ),
-        )
-
-        st.plotly_chart(fig_coding, key="CodingLanguages")
-
-    with col_spoken:
-        # Spoken languages with CEFR scale
-        spoken_skills = ["Italian", "German", "English"]
-        spoken_levels = [2, 1, 6]
-
-        fig_spoken = go.Figure(
-            go.Bar(
-                x=spoken_skills,
-                y=spoken_levels,
-                marker=dict(color="#008C45"),
-            )
-        )
-
-        cefr_tickvals = [1, 2, 3, 4, 5, 6]
-        cefr_ticktext = ["A1", "A2", "B1", "B2", "C1", "C2"]
-
-        fig_spoken.update_layout(
-            xaxis=dict(title="Spoken Languages"),
-            yaxis=dict(
-                title="CEFR Level",
-                tickvals=cefr_tickvals,
-                ticktext=cefr_ticktext,
-                range=[0, 6],
-            ),
-        )
-
-        st.plotly_chart(fig_spoken, key="SpokenLanguages")
 with General:
     col1, col2, col3, col4, col5, col6 = st.columns(6)
     with col1:
@@ -332,6 +274,67 @@ with General:
         st.badge("pytest", icon=":material/auto_fix_high:", color="orange")
         st.badge("asyncio", icon=":material/sync_alt:", color="yellow")
         st.badge("requests/httpx", icon=":material/send:", color="green")
+
+with AWS:
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.badge("S3", icon=":material/folder:", color="orange")
+        st.badge("DynamoDB", icon=":material/database:", color="blue")
+        st.badge("Fargate", icon=":material/add_box:", color="violet")
+        st.badge("CloudFormation", icon=":material/cloud:", color="green")
+        st.badge("CloudFront", icon=":material/public:", color="blue")
+        st.badge("Simple Queue Service (SQS)", icon=":material/queue:", color="green")
+        st.badge("Event Bridge", icon=":material/event:", color="yellow")
+    with col2:
+        st.badge(
+            "Elastic Container Service (ECS)", icon=":material/add_box:", color="violet"
+        )
+        st.badge("Lambda", icon=":material/functions:", color="yellow")
+        st.badge("API Gateway", icon=":material/api:", color="green")
+        st.badge("Secret Manager", icon=":material/lock:", color="red")
+        st.badge("Key Management Service (KMS)", icon=":material/key:", color="red")
+        st.badge("Cost Explorer", icon=":material/attach_money:", color="green")
+        st.badge("CloudWatch", icon=":material/cloud_alert:", color="orange")
+    with col3:
+        st.badge(
+            "Relational Database Service (RDS)",
+            icon=":material/database:",
+            color="blue",
+        )
+        st.badge(
+            "Simple Notification Service (SNS)",
+            icon=":material/notifications:",
+            color="green",
+        )
+        st.badge("Simple Email Service (SES)", icon=":material/email:", color="blue")
+        st.badge(
+            "Elastic Load Balancing (ELB)", icon=":material/balance:", color="yellow"
+        )
+        st.badge("Parameter Store", icon=":material/settings:", color="gray")
+        st.badge(
+            "Identity Access Management (IAM)", icon=":material/person:", color="blue"
+        )
+        st.badge("EC2", icon=":material/computer:", color="yellow")
+    with col4:
+        st.badge("Redshift", icon=":material/analytics:", color="violet")
+        st.badge(
+            "Elastic Container Registry (ECR)",
+            icon=":material/add_box:",
+            color="violet",
+        )
+        st.badge("Bedrock", icon=":material/robot:", color="gray")
+
+with Soft:
+    st.plotly_chart(build_soft_skills_fig(), key="soft_skills")
+
+with Lang:
+    col_coding, col_spoken = st.columns([3, 1])
+
+    with col_coding:
+        st.plotly_chart(build_coding_languages_fig(), key="CodingLanguages")
+
+    with col_spoken:
+        st.plotly_chart(build_spoken_languages_fig(), key="SpokenLanguages")
 # endregion
 st.divider()
 # region Education
@@ -353,12 +356,15 @@ st.divider()
 st.header("Resume", text_alignment="center")
 # Find resume in path
 resume_path = None
+resume_file_name = None
 for _, _, files in os.walk("assets"):
     for file in files:
         if "resume" in file.lower():
-            resume_path = os.path.join("assets", file)
             resume_file_name = file
+            resume_path = os.path.join("assets", file)
             break
+    if resume_path:
+        break
 
 
 if not resume_path:
@@ -367,18 +373,23 @@ if not resume_path:
     )
     st.stop()
 
-filename_no_ext = file.split(".")[0]
-file_date_str = filename_no_ext.split(" ")[-1]
-file_date = datetime.strptime(file_date_str, "%m-%d-%Y")
+# Prefer the date embedded in the filename (e.g. "... 5-28-2026.pdf") since it
+# reflects when the resume was actually updated. Fall back to the file's
+# modification time if the name doesn't contain a parseable date.
+date_token = Path(resume_file_name).stem.split(" ")[-1]
+try:
+    file_date = datetime.strptime(date_token, "%m-%d-%Y")
+except ValueError:
+    file_date = datetime.fromtimestamp(os.path.getmtime(resume_path))
 
-st.subheader(f"Latest update: {file_date.strftime("%B %d, %Y")}")
-st.pdf(f"assets/{resume_file_name}", height=830)
+st.subheader(f"Latest update: {file_date.strftime('%B %d, %Y')}")
+st.pdf(resume_path, height=830)
 # 830 is just enough so that no scroll bar appears in the "iframe" (at least on my laptop...)
 
 st.write("Want a copy?")
 st.download_button(
     "Download",
-    data=open(resume_path, "rb").read(),
+    data=load_resume_bytes(resume_path),
     file_name=resume_file_name,
     mime="application/pdf",
 )
@@ -388,5 +399,15 @@ st.divider()
 st.header("Contact", text_alignment="center")
 st.write(
     "Want to get in touch? Send me an email at [isaacsaaron@gmail.com](mailto:isaacsaaron@gmail.com)! I check my inbox regularly and will get back to you as soon as I can. I also have references available upon request."
+)
+st.link_button(
+    "LinkedIn",
+    "https://www.linkedin.com/in/aaron-m-isaacs/",
+    icon=":material/work:",
+)
+st.link_button(
+    "GitHub",
+    "https://github.com/Leg-0",
+    icon=":material/code:",
 )
 # endregion

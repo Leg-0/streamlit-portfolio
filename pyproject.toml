@@ -1,14 +1,17 @@
 [project]
 name = "streamlit-portfolio"
 version = "0.1.0"
-description = "Default template for PDM package"
+description = "Aaron Isaacs' personal portfolio, built with Streamlit."
 authors = [
     {name = "Aaron Isaacs", email = "isaacsaaron@gmail.com"},
 ]
-dependencies = ["streamlit[pdf]>=1.57.0", "watchdog>=6.0.0", "pip-system-certs>=5.3", "pandas>=3.0.2", "plotly>=6.7.0"]
-requires-python = "==3.14.*"
+dependencies = ["streamlit[pdf]>=1.57.0", "watchdog>=6.0.0", "plotly>=6.7.0"]
+requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "MIT"}
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
 
 
 [tool.pdm]
