@@ -104,7 +104,7 @@ with st.sidebar:
 
 
 st.title("Aaron Isaacs", text_alignment="center")
-st.caption("Full Stack Developer", text_alignment="center")
+st.caption("Backend Developer", text_alignment="center")
 
 # region Experience
 st.header("Experience", text_alignment="center")
